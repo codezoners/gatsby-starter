@@ -38,6 +38,9 @@ export default function Home({ data }) {
                   `}*/
                 >
                   — {node.frontmatter.date}
+                  - {node.frontmatter.brand}
+                  - {node.frontmatter.colour}
+                  - Cost is {node.frontmatter.price}
                 </span>
               </h3>
               <p>{node.excerpt}</p>
@@ -57,6 +60,9 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
+            brand
+            colour
+            price
           }
           fields {
             slug
