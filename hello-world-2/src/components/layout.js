@@ -25,7 +25,8 @@ export default function Layout({ children }) {
         margin: `3rem auto`,
         maxWidth: 650,
         padding: `0 1rem`,
-        color: `red` }}>
+        color: `red`,
+        backgroundColor: "black" }}>
       <header>
         <h1>{data.site.siteMetadata.title}</h1>
         <ul>
