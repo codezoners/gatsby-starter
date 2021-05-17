@@ -1,9 +1,12 @@
 import React from "react"
 //import { css } from "@emotion/react"
 import { Link, graphql } from "gatsby"
+
+import Container from "../components/container"
+
 export default function Home({ data }) {
   return (
-      <div class="container">
+      <Container>
         <h1
         /*
           css={css`
@@ -47,7 +50,7 @@ export default function Home({ data }) {
             </Link>
           </div>
         ))}
-      </div>
+      </Container>
   )
 }
 export const query = graphql`
