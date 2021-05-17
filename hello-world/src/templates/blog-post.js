@@ -1,15 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
-//import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
-  let featuredImgFluid = post.frontmatter.featuredImage.childImageSharp.fluid
+  let img = post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
 
-  console.log(featuredImgFluid)
+  console.log(img)
   return (
       <div>
         <h1>{post.frontmatter.title}</h1>
+        <GatsbyImage image={img} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
        
       </div>
@@ -23,9 +24,7 @@ export const query = graphql`
         title
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(layout: FIXED) 
           }
         }
       }
