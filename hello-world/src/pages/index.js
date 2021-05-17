@@ -3,7 +3,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 export default function Home({ data }) {
   return (
-      <div>
+      <div class="container">
         <h1
         /*
           css={css`
