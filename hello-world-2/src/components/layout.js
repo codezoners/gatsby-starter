@@ -26,7 +26,7 @@ export default function Layout({ children }) {
         maxWidth: 650,
         padding: `0 1rem`,
         color: `red`,
-        backgroundColor: "black" }}>
+        backgroundColor: "#A0A0A0" }}>
       <header>
         <h1>{data.site.siteMetadata.title}</h1>
         <ul>
