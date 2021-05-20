@@ -10,17 +10,8 @@ module.exports = {
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `src`,
-      path: `${__dirname}/src/pages`,
+      path: `${__dirname}/src`,
     },
-  },
-  /* Oh: second one needed for an additional source directory,
-     the relative path in the frontmatter is not enough. */
-  {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src/images`,
-      },
   },
   `gatsby-transformer-remark`,
   `gatsby-plugin-image`,
