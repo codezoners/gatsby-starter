@@ -5,6 +5,7 @@ featuredImage: "../images/IMG_7275.jpg"
 colour: "blue"
 brand: "Ford"
 price: 3000
+key: "post"
 ---
 Paragraph 1.
 

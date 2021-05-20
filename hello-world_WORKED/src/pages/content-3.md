@@ -5,6 +5,7 @@ featuredImage: "../images/IMG_7275.jpg"
 colour: "red"
 brand: "Nissan"
 price: 5000
+key: "postx"
 ---
 This is a paragraph about a Nissan car which is 
 red and costs 5000.

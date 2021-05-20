@@ -5,6 +5,7 @@ featuredImage: "../images/IMG_7275.jpg"
 colour: "black"
 brand: "Chevrolet"
 price: 1000
+key: "post"
 ---
 *Paragraph* 1.
 

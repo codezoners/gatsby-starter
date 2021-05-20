@@ -2,10 +2,11 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
-export default function BlogPost({ data }) {
+export default function Author({ data }) {
   const post = data.markdownRemark
   let img = post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
 
+  console.log(img)
   return (
       <div className="container">
         <div className="row">
@@ -26,7 +27,7 @@ export default function BlogPost({ data }) {
 }
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug }}) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
