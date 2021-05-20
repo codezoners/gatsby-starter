@@ -1,28 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import Layout from "../components/layout"
+import Container from "../components/container"
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
-  let img = post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
-
-  console.log(img)
   return (
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <h1>{post.frontmatter.title}</h1>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col">
-            <GatsbyImage image={img} />
-          </div>
-          <div class="col">
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </div>
-        </div>
-      </div>
+    <Layout>
+      <Container>
+        <h1>{post.frontmatter.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </Container>
+    </Layout>
   )
 }
 export const query = graphql`
@@ -31,11 +20,6 @@ export const query = graphql`
       html
       frontmatter {
         title
-        featuredImage {
-          childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED) 
-          }
-        }
       }
     }
   }

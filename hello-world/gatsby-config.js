@@ -6,25 +6,17 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [{
-    resolve: `gatsby-source-filesystem`,
-    options: {
-      name: `src`,
-      path: `${__dirname}/src/pages`,
-    },
+  siteMetadata: {
+    title: `My First Gatsby Site`,
   },
-  /* Oh: second one needed for an additional source directory,
-     the relative path in the frontmatter is not enough. */
-  {
+  plugins: [
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/images`,
-      },
-  },
-  `gatsby-transformer-remark`,
-  `gatsby-plugin-image`,
-  `gatsby-plugin-sharp`,
-  `gatsby-transformer-sharp`
+        path: `${__dirname}/src/`,
+      }
+    },
+    `gatsby-transformer-remark`
   ]
 }

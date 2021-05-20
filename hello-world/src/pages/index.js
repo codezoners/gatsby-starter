@@ -1,56 +1,32 @@
 import React from "react"
-//import { css } from "@emotion/react"
 import { Link, graphql } from "gatsby"
-
-import Container from "../components/container"
+import Layout from "../components/layout"
 
 export default function Home({ data }) {
   return (
-      <Container>
-        <h1
-        /*
-          css={css`
-            display: inline-block;
-            border-bottom: 1px solid;
-          `}*/
-        >
-         Index Title
+    <Layout>
+      <div>
+        <h1>
+          Amazing Pandas Eating Things
         </h1>
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link
               to={node.fields.slug}
-              /*
-              css={css`
-                text-decoration: none;
-                color: inherit;
-              `}*/
             >
-              <h3
-              /*
-                css={css`
-                  margin-bottom: ${rhythm(1 / 4)};
-                `}*/
-              >
+              <h3>
                 {node.frontmatter.title}{" "}
-                <span
-                /*
-                  css={css`
-                    color: #555;
-                  `}*/
-                >
+                <span>
                   — {node.frontmatter.date}
-                  - {node.frontmatter.brand}
-                  - {node.frontmatter.colour}
-                  - Cost is {node.frontmatter.price}
                 </span>
               </h3>
               <p>{node.excerpt}</p>
             </Link>
           </div>
         ))}
-      </Container>
+      </div>
+    </Layout>
   )
 }
 export const query = graphql`
@@ -63,9 +39,6 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
-            brand
-            colour
-            price
           }
           fields {
             slug
