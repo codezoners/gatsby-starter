@@ -8,17 +8,17 @@ export default function BlogPost({ data }) {
 
   console.log(img)
   return (
-      <div class="container">
-        <div class="row">
-          <div class="col">
+      <div className="container">
+        <div className="row">
+          <div className="col">
             <h1>{post.frontmatter.title}</h1>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <GatsbyImage image={img} />
+        <div className="row">
+          <div className="col">
+            <GatsbyImage image={img} alt=""/>
           </div>
-          <div class="col">
+          <div className="col">
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
         </div>
