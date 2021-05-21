@@ -10,6 +10,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     })
+    createNodeField({
+      node,
+      name: "tag",
+      value: slug.replaceAll(/\//g, "")
+    })
   }
 }
 
@@ -25,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
             },
           profiles:
             allMarkdownRemark(filter: {frontmatter: {key: {eq: "profile"}}}) {
-              edges { node { fields { slug } } }
+              edges { node { fields { slug tag } } }
             }
         }
     `)
@@ -48,7 +53,8 @@ exports.createPages = async ({ graphql, actions }) => {
           path: node.fields.slug,
           component: path.resolve(`./src/templates/author.js`),
           context: {
-            slug: node.fields.slug
+            slug: node.fields.slug,
+            tag: node.fields.tag
           },
         })
       })

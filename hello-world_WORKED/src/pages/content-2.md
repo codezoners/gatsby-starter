@@ -1,5 +1,5 @@
 ---
-title: "First Page"
+title: "Second Page"
 date: "2021-05-11"
 featuredImage: "../images/2.jpg"
 colour: "blue"
