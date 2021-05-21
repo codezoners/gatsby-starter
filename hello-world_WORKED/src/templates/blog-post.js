@@ -18,6 +18,7 @@ export default function BlogPost({ data }) {
             <GatsbyImage image={img} alt=""/>
           </div>
           <div className="col">
+            <h4>{post.frontmatter.owner}</h4>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
         </div>
@@ -30,6 +31,7 @@ export const query = graphql`
       html
       frontmatter {
         title
+        owner
         featuredImage {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED) 

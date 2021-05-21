@@ -1,5 +1,5 @@
 ---
 title: Captain Scarlet
-image: "../images/Captain_Scarlet_(1967).jpg"
+featuredImage: "../images/Captain_Scarlet_(1967)_1.jpg"
 key: profile
 ---

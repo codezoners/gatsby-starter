@@ -5,6 +5,7 @@ featuredImage: "../images/2.jpg"
 colour: "blue"
 price: 3000
 key: "post"
+owner: scarlet
 ---
 Paragraph 1.
 

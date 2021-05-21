@@ -18,30 +18,39 @@ exports.createPages = async ({ graphql, actions }) => {
     // **Note:** The graphql function call returns a Promise
     // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
     const result = await graphql(`
-      query {
-        allMarkdownRemark(
-          filter: {frontmatter: {key: {eq: "post"}}}
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
+        query {
+          posts:
+            allMarkdownRemark(filter: {frontmatter: {key: {eq: "post"}}}) {
+              edges { node { fields { slug } } }
+            },
+          profiles:
+            allMarkdownRemark(filter: {frontmatter: {key: {eq: "profile"}}}) {
+              edges { node { fields { slug } } }
             }
-          }
         }
-      }
     `)
-    // console.log(JSON.stringify(result, null, 4))
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    console.log(JSON.stringify(result.posts, null, 4))
+
+    result.data.posts.edges.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
           component: path.resolve(`./src/templates/blog-post.js`),
           context: {
             // Data passed to context is available
             // in page queries as GraphQL variables.
-            slug: node.fields.slug,
+            slug: node.fields.slug
           },
         })
       })
-  }
+
+      result.data.profiles.edges.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve(`./src/templates/author.js`),
+          context: {
+            slug: node.fields.slug
+          },
+        })
+      })
+}
+ 

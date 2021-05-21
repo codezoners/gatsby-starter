@@ -3,15 +3,16 @@ import { graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function Author({ data }) {
-  const post = data.markdownRemark
-  let img = post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+  const author = data.markdownRemark
+  console.log(author)
+  let img = author.frontmatter.featuredImage.childImageSharp.gatsbyImageData
 
   console.log(img)
   return (
       <div className="container">
         <div className="row">
           <div className="col">
-            <h1>{post.frontmatter.title}</h1>
+            <h1>{author.frontmatter.title}</h1>
           </div>
         </div>
         <div className="row">
@@ -19,7 +20,7 @@ export default function Author({ data }) {
             <GatsbyImage image={img} alt=""/>
           </div>
           <div className="col">
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
+            <div dangerouslySetInnerHTML={{ __html: author.html }} />
           </div>
         </div>
       </div>
