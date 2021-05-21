@@ -1,11 +1,10 @@
 ---
 title: "First Page"
 date: "2021-05-11"
-featuredImage: "../images/IMG_7275.jpg"
+featuredImage: "../images/3.jpg"
 colour: "red"
-brand: "Nissan"
 price: 5000
-key: "postx"
+key: "post"
 ---
 This is a paragraph about a Nissan car which is 
 red and costs 5000.

@@ -7,45 +7,13 @@ import Container from "../components/container"
 export default function Home({ data }) {
   return (
       <Container>
-        <h1
-        /*
-          css={css`
-            display: inline-block;
-            border-bottom: 1px solid;
-          `}*/
-        >
+        <h1>
          Index Title
         </h1>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
-            <Link
-              to={node.fields.slug}
-              /*
-              css={css`
-                text-decoration: none;
-                color: inherit;
-              `}*/
-            >
-              <h3
-              /*
-                css={css`
-                  margin-bottom: ${rhythm(1 / 4)};
-                `}*/
-              >
-                {node.frontmatter.title}{" "}
-                <span
-                /*
-                  css={css`
-                    color: #555;
-                  `}*/
-                >
-                  — {node.frontmatter.date}
-                  - {node.frontmatter.brand}
-                  - {node.frontmatter.colour}
-                  - Cost is {node.frontmatter.price}
-                </span>
-              </h3>
+            <Link to={node.fields.slug}>
+              <h3>{node.frontmatter.title}</h3>
               <p>{node.excerpt}</p>
             </Link>
           </div>
@@ -55,7 +23,7 @@ export default function Home({ data }) {
 }
 export const query = graphql`
   query {
-    allMarkdownRemark(filter: {frontmatter: {key: {eq: "post"}}},
+    allMarkdownRemark(filter: {frontmatter: {key: {eq: "profile"}}},
                       sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
@@ -64,7 +32,6 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
-            brand
             colour
             price
           }

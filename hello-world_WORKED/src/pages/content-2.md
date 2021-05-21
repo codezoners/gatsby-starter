@@ -1,9 +1,8 @@
 ---
 title: "First Page"
 date: "2021-05-11"
-featuredImage: "../images/IMG_7275.jpg"
+featuredImage: "../images/2.jpg"
 colour: "blue"
-brand: "Ford"
 price: 3000
 key: "post"
 ---
