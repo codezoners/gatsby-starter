@@ -10,6 +10,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     })
+    /* This is a bit of a hack: we trim down the slug to get a "tag"
+       which is what we key off with the "owner" frontmatter key.
+    */
     createNodeField({
       node,
       name: "tag",
@@ -24,18 +27,20 @@ exports.createPages = async ({ graphql, actions }) => {
     // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
     const result = await graphql(`
         query {
+          # All Markdown nodes whose key is "post":
           posts:
             allMarkdownRemark(filter: {frontmatter: {key: {eq: "post"}}}) {
               edges { node { fields { slug } } }
             },
+          # All Markdown nodes whose key is "profile":
           profiles:
             allMarkdownRemark(filter: {frontmatter: {key: {eq: "profile"}}}) {
               edges { node { fields { slug tag } } }
             }
         }
     `)
-    console.log(JSON.stringify(result.posts, null, 4))
 
+    // Create pages for all posts:
     result.data.posts.edges.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
@@ -48,6 +53,8 @@ exports.createPages = async ({ graphql, actions }) => {
         })
       })
 
+      /* Create pages for all profiles: the tag is passed in because we also
+         have to list all the post pages owned according to that tag. */
       result.data.profiles.edges.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,

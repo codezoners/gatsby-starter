@@ -1,10 +1,12 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
   let img = post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+
+  console.log("OWNER", post.frontmatter.owner)
 
   return (
       <div className="container">
@@ -18,7 +20,8 @@ export default function BlogPost({ data }) {
             <GatsbyImage image={img} alt=""/>
           </div>
           <div className="col">
-            <h4>{post.frontmatter.owner}</h4>
+            { /* Reconstitute owner frontmatter tag into a slug: */ }
+            <h4><Link to={`/${post.frontmatter.owner}/`}>{post.frontmatter.owner}</Link></h4>
             <div dangerouslySetInnerHTML={{ __html: post.html }} />
           </div>
         </div>
