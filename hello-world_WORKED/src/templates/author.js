@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import Container from "../components/container"
 
 export default function Author({ data }) {
   const author = data.thisPage
@@ -9,29 +10,24 @@ export default function Author({ data }) {
   const img = author.frontmatter.featuredImage.childImageSharp.gatsbyImageData
 
   return (
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <h1>{author.frontmatter.title}</h1>
-          </div>
-          {blogPages.edges.map((x, i) =>
-                <div key={i} className="row">
-                    <Link to={x.node.fields.slug}>{x.node.frontmatter.title}</Link>
-                </div>
-           )}
+    <Container>
+        <h1>{author.frontmatter.title}</h1>
 
-        </div>
-        <div className="row">
-          <div className="col">
+        {blogPages.edges.map(x =>
+            <div key={x.node.id} className="row">
+                <Link to={x.node.fields.slug}>{x.node.frontmatter.title}</Link>
+            </div>
+        )}
+
+        <div>
             <GatsbyImage image={img} alt=""/>
-          </div>
-          <div className="col">
-            <div dangerouslySetInnerHTML={{ __html: author.html }} />
-          </div>
         </div>
-      </div>
+
+        <div dangerouslySetInnerHTML={{ __html: author.html }} />
+    </Container>
   )
 }
+
 export const query = graphql`
     query($slug: String!, $tag: String!)
     {
@@ -55,6 +51,7 @@ export const query = graphql`
             ) {
                 edges {
                     node {
+                        id
                         fields {
                             slug
                         }

@@ -8,7 +8,7 @@ export default function Home({ data }) {
   return (
       <Container>
         <h1>
-         Index Title
+         Class Portfolio
         </h1>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>

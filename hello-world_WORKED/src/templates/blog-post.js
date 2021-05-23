@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
+import Container from "../components/container"
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
@@ -9,23 +10,18 @@ export default function BlogPost({ data }) {
   console.log("OWNER", post.frontmatter.owner)
 
   return (
-      <div className="container">
-        <div className="row">
-          <div className="col">
-            <h1>{post.frontmatter.title}</h1>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
+      <Container>
+          <h1>{post.frontmatter.title}</h1>
+
+          <div>
             <GatsbyImage image={img} alt=""/>
           </div>
-          <div className="col">
-            { /* Reconstitute owner frontmatter tag into a slug: */ }
-            <h4><Link to={`/${post.frontmatter.owner}/`}>{post.frontmatter.owner}</Link></h4>
-            <div dangerouslySetInnerHTML={{ __html: post.html }} />
-          </div>
-        </div>
-      </div>
+
+          { /* Reconstitute owner frontmatter tag into a slug: */ }
+          <h4><Link to={`/${post.frontmatter.owner}/`}>{post.frontmatter.owner}</Link></h4>
+
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </Container>
   )
 }
 export const query = graphql`
