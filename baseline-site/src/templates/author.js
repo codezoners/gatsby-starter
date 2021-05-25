@@ -7,14 +7,15 @@ export default function Author({ data }) {
   const author = data.thisPage
   const blogPages = data.blogPages
 
-  const img = author.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+  const img = author.frontmatter.profile_pic.childImageSharp.gatsbyImageData
 
   return (
     <Container>
-        <h1>{author.frontmatter.title}</h1>
+        <h1>{author.frontmatter.name}</h1>
 
         {blogPages.edges.map(x =>
             <div key={x.node.id} className="row">
+                <span>{x.node.frontmatter.date}</span>
                 <Link to={x.node.fields.slug}>{x.node.frontmatter.title}</Link>
             </div>
         )}
@@ -36,8 +37,8 @@ export const query = graphql`
             markdownRemark(fields: { slug: { eq: $slug } }) {
                 html
                 frontmatter {
-                    title
-                    featuredImage {
+                    name
+                    profile_pic {
                         childImageSharp {
                             gatsbyImageData(layout: CONSTRAINED) 
                         }
@@ -48,6 +49,7 @@ export const query = graphql`
         blogPages:
             allMarkdownRemark(
                 filter: { frontmatter: { owner: { eq: $tag }}}
+                sort: {fields: frontmatter___date, order: ASC}
             ) {
                 edges {
                     node {
@@ -57,6 +59,7 @@ export const query = graphql`
                         }
                         frontmatter {
                             title
+                            date
                         }
                     }
                 }

@@ -1,10 +1,10 @@
 ---
 title: "Third Page"
 date: "2021-05-11"
-featuredImage: "../images/3.jpg"
+project_pic: "../images/3.jpg"
 colour: "red"
 price: 5000
-key: "post"
+key: project
 owner: ochre
 ---
 This is a paragraph about a Nissan car which is 

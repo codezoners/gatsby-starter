@@ -13,7 +13,7 @@ export default function Home({ data }) {
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link to={node.fields.slug}>
-              <h3>{node.frontmatter.title}</h3>
+              <h3>{node.frontmatter.name}</h3>
               <p>{node.excerpt}</p>
             </Link>
           </div>
@@ -30,7 +30,7 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            title
+            name
             date(formatString: "DD MMMM, YYYY")
             colour
             price

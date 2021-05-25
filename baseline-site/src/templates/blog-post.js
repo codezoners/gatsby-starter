@@ -5,7 +5,7 @@ import Container from "../components/container"
 
 export default function BlogPost({ data }) {
   const post = data.markdownRemark
-  let img = post.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+  let img = post.frontmatter.project_pic.childImageSharp.gatsbyImageData
 
   console.log("OWNER", post.frontmatter.owner)
 
@@ -31,7 +31,7 @@ export const query = graphql`
       frontmatter {
         title
         owner
-        featuredImage {
+        project_pic {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED) 
           }

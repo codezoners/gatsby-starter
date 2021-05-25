@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: "tag",
-      value: slug.replaceAll(/\//g, "")
+      value: slug.replace(/\//g, "")
     })
   }
 }
@@ -27,9 +27,9 @@ exports.createPages = async ({ graphql, actions }) => {
     // see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise for more info
     const result = await graphql(`
         query {
-          # All Markdown nodes whose key is "post":
+          # All Markdown nodes whose key is "project":
           posts:
-            allMarkdownRemark(filter: {frontmatter: {key: {eq: "post"}}}) {
+            allMarkdownRemark(filter: {frontmatter: {key: {eq: "project"}}}) {
               edges { node { fields { slug } } }
             },
           # All Markdown nodes whose key is "profile":

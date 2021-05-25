@@ -1,5 +1,5 @@
 ---
-title: Captain Ochre
-featuredImage: "../images/ochre.jpg"
+name: Captain Ochre
+profile_pic: "../images/ochre.jpg"
 key: profile
 ---
