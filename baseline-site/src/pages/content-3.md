@@ -7,11 +7,12 @@ price: 5000
 key: project
 owner: ochre
 ---
-This is a paragraph about a Nissan car which is 
-red and costs 5000.
-
 ## Subheading
 
 __Paragraph__ 1.
 
 Paragraph 2.
+
+`video: https://www.youtube.com/embed/JFIfydkPtg4`
+
+`video: https://player.vimeo.com/video/373186492`

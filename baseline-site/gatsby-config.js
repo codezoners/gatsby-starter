@@ -13,9 +13,23 @@ module.exports = {
       path: `${__dirname}/src`,
     },
   },
-  `gatsby-transformer-remark`,
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        {
+          resolve: "gatsby-remark-embed-video",
+          options: { related: false }
+        },
+        {
+          resolve: "gatsby-remark-images",
+          options: { maxWidth: 600 }
+        }
+      ]
+    }
+  },
   `gatsby-plugin-image`,
   `gatsby-plugin-sharp`,
-  `gatsby-transformer-sharp`
+  `gatsby-transformer-sharp`,
   ]
 }
