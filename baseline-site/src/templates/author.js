@@ -11,6 +11,7 @@ export default function Author({ data }) {
 
   return (
     <Container>
+        <h2><Link to="/">Home</Link></h2>
         <h1>{author.frontmatter.name}</h1>
 
         {blogPages.edges.map(x =>

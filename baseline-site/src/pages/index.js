@@ -32,8 +32,6 @@ export const query = graphql`
           frontmatter {
             name
             date(formatString: "DD MMMM, YYYY")
-            colour
-            price
           }
           fields {
             slug
