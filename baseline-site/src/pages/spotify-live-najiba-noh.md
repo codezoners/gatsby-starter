@@ -5,4 +5,5 @@ project_pic: "../images/spotify-live-najiba.jpg"
 key: project
 owner: najiba-noh
 ---
+`video: https://https://youtu.be/dGi6YpRi4rs`
 D&AD Project

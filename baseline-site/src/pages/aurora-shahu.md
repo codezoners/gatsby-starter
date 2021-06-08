@@ -1,7 +1,7 @@
 ---
 name: Aurora Shahu
 biog: GRADUATE UX-UI DESIGNER
-profile_pic: "../images/om-profile.jpg"
+profile_pic: "../images/aurorashahu.jpg"
 github: https://github.com/auroras
 Behance: https://www.behance.net/theosaxoua6a8
 linkedin: https://www.linkedin.com/in/aurora-shahu-03202b117/

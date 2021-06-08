@@ -18,6 +18,7 @@ export default function Author({ data }) {
             <div key={x.node.id} className="row">
                 <span>{x.node.frontmatter.date}</span>
                 <Link to={x.node.fields.slug}>{x.node.frontmatter.title}</Link>
+                <GatsbyImage image={x.node.frontmatter.project_pic.childImageSharp.gatsbyImageData} alt=""/>
             </div>
         )}
 
@@ -61,6 +62,11 @@ export const query = graphql`
                         frontmatter {
                             title
                             date
+                            project_pic {
+                                childImageSharp {
+                                    gatsbyImageData(layout: CONSTRAINED) 
+                                }
+                            }
                         }
                     }
                 }
