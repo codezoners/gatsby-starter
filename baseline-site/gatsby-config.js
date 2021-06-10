@@ -28,6 +28,16 @@ module.exports = {
       ]
     }
   },
+  {
+    resolve: `gatsby-plugin-google-fonts`,
+    options: {
+      fonts: [
+        `Indie Flower`,
+        `Oswald\:200,700`
+      ],
+      display: 'swap'
+    }
+  },
   `gatsby-plugin-image`,
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,
